@@ -10,6 +10,7 @@ let wordList = localStorage['wordlist'];
 
 let showZhuyin = localStorage['zhuyin'] === 'yes';
 let showJyutping = localStorage['jyutpingEnabled'] === 'yes';
+let showPinyin = localStorage['pinyinEnabled'] === 'yes';
 
 const NOTES_COLUMN =  7;
 
@@ -92,7 +93,7 @@ $(document).ready(function () {
             { data: 'id' },
             { data: 'simplified' },
             { data: 'traditional' },
-            { data: 'pinyin' },
+            { data: 'pinyin', visible: showPinyin },
             { data: 'jyutping', visible: showJyutping },
             { data: 'zhuyin', visible: showZhuyin },
             { data: 'definition' },
@@ -147,12 +148,16 @@ $(document).ready(function () {
             content += '\t';
             content += entry.traditional;
             content += '\t';
-            content += entry.pinyin;
-            content += '\t';
+            if (showPinyin) {
+                content += entry.pinyin;
+                content += '\t';
+            }
+
             if (showZhuyin) {
                 content += entry.zhuyin;
                 content += '\t';
             }
+
             if (showJyutping) {
                 content += entry.jyutping;
                 content += '\t';

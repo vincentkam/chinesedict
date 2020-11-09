@@ -37,11 +37,14 @@ function loadVals() {
     const skritterTLD = localStorage['skritterTLD'] || 'com';
     document.querySelector(`input[name="skritterTLD"][value="${skritterTLD}"]`).checked = true;
 
-    const cantoneseEntriesEnabled = localStorage['cantoneseEntriesEnabled'] || 'no';
+    const cantoneseEntriesEnabled = localStorage['cantoneseEntriesEnabled'] || 'yes';
     document.querySelector('#cantoneseEntriesEnabled').checked = cantoneseEntriesEnabled === 'yes';
 
-    const jyutpingEnabled = localStorage['jyutpingEnabled'] || 'no';
+    const jyutpingEnabled = localStorage['jyutpingEnabled'] || 'yes';
     document.querySelector('#jyutpingEnabled').checked = jyutpingEnabled === 'yes';
+
+    const pinyinEnabled = localStorage['pinyinEnabled'] || 'yes';
+    document.querySelector('#pinyinEnabled').checked = pinyinEnabled === 'yes';
 }
 
 function setPopupColor(popupColor) {
@@ -111,6 +114,9 @@ window.addEventListener('load', () => {
 
     document.querySelector('#jyutpingEnabled').addEventListener('change',
         (event) => setBooleanOption('jyutpingEnabled', event.target.checked));
+
+    document.querySelector('#pinyinEnabled').addEventListener('change',
+        (event) => setBooleanOption('pinyinEnabled', event.target.checked));
 });
 
 loadVals();

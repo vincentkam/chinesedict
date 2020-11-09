@@ -65,8 +65,9 @@ let zhongwenOptions = window.zhongwenOptions = {
     grammar: localStorage['grammar'] || 'yes',
     simpTrad: localStorage['simpTrad'] || 'classic',
     toneColorScheme: localStorage['toneColorScheme'] || 'standard',
-    cantoneseEntriesEnabled: localStorage['cantoneseEntriesEnabled'] || 'no',
-    jyutpingEnabled: localStorage['jyutpingEnabled'] || 'no',
+    cantoneseEntriesEnabled: localStorage['cantoneseEntriesEnabled'] || 'yes',
+    jyutpingEnabled: localStorage['jyutpingEnabled'] || 'yes',
+    pinyinEnabled: localStorage['pinyinEnabled'] || 'yes',
 };
 
 function activateExtension(tabId, showHelp) {
@@ -301,9 +302,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
             const response = {
                 words: search(request.text),
                 originalText: request.originalText,
-                displayedPronunciations: [
-                    "pinyin"
-                ].concat(localStorage["jyutpingEnabled"] === "yes" ? ["jyutping"] : [])
+                displayedPronunciations: (localStorage["pinyinEnabled"] === "yes" ? ["pinyin"] : [])
+                                            .concat(localStorage["jyutpingEnabled"] === "yes" ? ["jyutping"] : [])
             };
 
             callback(response);

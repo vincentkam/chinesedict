@@ -42,37 +42,6 @@
     </div>
 
     <div class="form-group mb-4">
-        <label>
-            Coloring pinyin syllables based on the tone of the character
-        </label>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="toneColorsStandard" name="toneColors"
-                   class="custom-control-input" value="standard">
-            <label class="custom-control-label" for="toneColorsStandard">Use the default color
-                scheme.</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="toneColorsPleco" name="toneColors" class="custom-control-input"
-                   value="pleco">
-            <label class="custom-control-label" for="toneColorsPleco">Use the <a
-                    href="https://pleco.com" target="_blank">Pleco</a> color scheme.</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="toneColorsHanping" name="toneColors"
-                   class="custom-control-input" value="hanping">
-            <label class="custom-control-label" for="toneColorsHanping">Use the <a
-                    href="https://hanpingchinese.com/" target="_blank">Hanping</a> color
-                scheme.</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="toneColorsNone" name="toneColors" class="custom-control-input"
-                   value="none">
-            <label class="custom-control-label" for="toneColorsNone">Don't show any tone
-                colors.</label>
-        </div>
-    </div>
-
-    <div class="form-group mb-4">
         <label>Font size of the characters in the pop-up window</label>
         <div class="custom-control custom-radio">
             <input type="radio" id="fontSizeSmall" name="fontSize" class="custom-control-input"
@@ -121,6 +90,41 @@
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="grammar" name="grammar">
             <label class="custom-control-label" for="grammar">Show grammar and usage notes.</label>
+        </div>
+    </div>
+
+    <div class="form-group mb-4">
+        <label>
+            Coloring pinyin syllables based on the tone of the character
+        </label>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pinyinEnabled" name="pinyinEnabled">
+            <label class="custom-control-label" for="pinyinEnabled">Display pinyin</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="toneColorsStandard" name="toneColors"
+                   class="custom-control-input" value="standard">
+            <label class="custom-control-label" for="toneColorsStandard">Use the default color
+                scheme.</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="toneColorsPleco" name="toneColors" class="custom-control-input"
+                   value="pleco">
+            <label class="custom-control-label" for="toneColorsPleco">Use the <a
+                    href="https://pleco.com" target="_blank">Pleco</a> color scheme.</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="toneColorsHanping" name="toneColors"
+                   class="custom-control-input" value="hanping">
+            <label class="custom-control-label" for="toneColorsHanping">Use the <a
+                    href="https://hanpingchinese.com/" target="_blank">Hanping</a> color
+                scheme.</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="toneColorsNone" name="toneColors" class="custom-control-input"
+                   value="none">
+            <label class="custom-control-label" for="toneColorsNone">Don't show any tone
+                colors.</label>
         </div>
     </div>
 

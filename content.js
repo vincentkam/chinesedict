@@ -896,8 +896,6 @@ function makeHtml(result, showToneColors) {
 
             }
 
-            // Pinyin
-
             let pinyinClass = 'w-pinyin';
             if (config.fontSize === 'small') {
                 pinyinClass += '-small';
@@ -907,7 +905,11 @@ function makeHtml(result, showToneColors) {
                 mandarin: pinyinAndZhuyin(entry.pronunciation.mandarin, showToneColors, pinyinClass),
                 cantonese: [`<span class="${pinyinClass}">${entry.pronunciation.cantonese}</span>`, entry.pronunciation.cantonese]
             };
-            html += p.mandarin[0];
+
+            // Pinyin
+            if (result.displayedPronunciations.includes("pinyin")) {
+                html += p.mandarin[0];
+            }
 
             // Jyutping
             if (result.displayedPronunciations.includes("jyutping")) {
