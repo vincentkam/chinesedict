@@ -1,6 +1,6 @@
 ### Contributors
 
-The Zhongwen Chrome extension was written by Christian Schiller with
+The original Zhongwen Chrome extension was written by Christian Schiller with
 contributions from the following people:
 
 * Todd Rudick (http://rikaixul.mozdev.org/)
@@ -23,3 +23,7 @@ Zhongwen be integrated with, the Chinese Grammar Wiki.
 Thanks also to Nick Winter from Skritter for his assistance with
 setting up the API for integrating Zhongwen with Skritter.
 (https://skritter.com/)
+
+-----
+
+Changes & additions to add support for Cantonese by Michal Tusnio
