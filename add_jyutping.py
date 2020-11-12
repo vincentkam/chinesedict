@@ -29,4 +29,8 @@ with open(args.inputPath) as input:
 
             replPattern = r"\1 \2 [\3] {{{0}}} /\4/".format(" ".join(pronunciation))
             newLine = re.sub(r"(.+?) (.+?) \[(.+?)\] \/(.+)\/", replPattern, line)
+
+            # This way we can re-run on an existing dictionary to update the existing entries
+            # if the first sub did not do anything. Otherwise the entry should be the same
+            newLine = re.sub(r"(.+?) (.+?) \[(.+?)\] {.*?} \/(.+)\/", replPattern, newLine)
             output.write(newLine)
