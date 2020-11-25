@@ -1,21 +1,21 @@
 {
-  "name": "zhongwen",
-  "version": "5.8.0",
-  "description": "Chinese Pop-Up Dictionary",
+  "name": "chinesedict",
+  "version": "1.0.1",
+  "description": "Mandarin and Cantonese Pop-Up Dictionary",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cschiller/zhongwen.git"
+    "url": "git+https://github.com/mtusnio/chinesedict.git"
   },
   "keywords": [
     "Chinese",
     "Dictionary"
   ],
-  "author": "Christian Schiller",
+  "author": "Michal Tusnio",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/cschiller/zhongwen/issues"
+    "url": "https://github.com/mtusnio/chinesedict/issues"
   },
-  "homepage": "https://github.com/cschiller/zhongwen#readme",
+  "homepage": "https://github.com/mtusnio/chinesedict#readme",
   "devDependencies": {
     "eslint": "^5.15.0",
     "stylelint": "^9.10.1",
