@@ -299,11 +299,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
     switch (request.type) {
 
         case 'search': {
+            const displayedPronunciations = (zhongwenOptions["pinyinEnabled"] === "yes" ? ["pinyin"] : [])
+            .concat(zhongwenOptions["jyutpingEnabled"] === "yes" ? ["jyutping"] : []);
             const response = {
                 words: search(request.text),
                 originalText: request.originalText,
-                displayedPronunciations: (localStorage["pinyinEnabled"] === "yes" ? ["pinyin"] : [])
-                                            .concat(localStorage["jyutpingEnabled"] === "yes" ? ["jyutping"] : [])
+                displayedPronunciations
             };
 
             callback(response);

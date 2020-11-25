@@ -9,8 +9,8 @@
 let wordList = localStorage['wordlist'];
 
 let showZhuyin = localStorage['zhuyin'] === 'yes';
-let showJyutping = localStorage['jyutpingEnabled'] === 'yes';
-let showPinyin = localStorage['pinyinEnabled'] === 'yes';
+let showJyutping = localStorage['jyutpingEnabled'] || 'yes';
+let showPinyin = localStorage['pinyinEnabled'] || 'yes';
 
 const NOTES_COLUMN =  7;
 
