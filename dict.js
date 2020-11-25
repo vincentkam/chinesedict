@@ -72,8 +72,8 @@ export class ZhongwenDictionary {
                     const entry = {
                         type: dictionary.type,
                         length: tokens[1].length,
-                        simplified: tokens[1],
-                        traditional: tokens[2],
+                        simplified: tokens[2],
+                        traditional: tokens[1],
                         pronunciation: {
                             // Some dictionaries might use v for u:
                             mandarin: tokens[3].replace("v", "u:"),
