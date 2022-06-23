@@ -951,7 +951,7 @@ function makeHtml(result, showToneColors) {
                 html += '<br><span class="grammar">Press "g" for grammar and usage notes.</span><br><br>';
             }
 
-            texts[index] = {
+            texts.push({
                 simplified: entry.simplified,
                 traditional: entry.traditional,
                 pronunciation: {
@@ -960,7 +960,7 @@ function makeHtml(result, showToneColors) {
                     zhuyin: p.mandarin[3]
                 },
                 definition: entry.definition,
-            };
+            });
         });
     });
 
