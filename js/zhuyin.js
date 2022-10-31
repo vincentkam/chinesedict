@@ -425,7 +425,7 @@ const zhuyinMap = {
 
 globalThis.numericPinyin2Zhuyin = function (syllable) {
     return zhuyinMap[syllable.substring(0, syllable.length - 1).toLowerCase()]
-        + zhuyinTones[syllable[syllable.length - 1]];
+        + zhuyinTones[syllable[syllable.length - 1]] + '</span>';
 
 };
 
