@@ -779,10 +779,19 @@ function isVisible() {
     return popup && popup.style.display !== 'none';
 }
 
+function savedSearchResultToString(r) {
+    let tuple = config.zhuyin === 'yes'
+        ? [r.traditional, r.simplified, r.pronunciation.cantonese,
+           r.pronunciation.mandarin, r.pronunciation.zhuyin, r.definition]
+        : [r.traditional, r.simplified, r.pronunciation.cantonese,
+           r.pronunciation.mandarin, r.definition];
+    return tuple.join('\t');
+}
+
 function getTextForClipboard() {
     let result = '';
     for (let i = 0; i < savedSearchResults.length; i++) {
-        result += savedSearchResults[i].slice(0, -1).join('\t');
+        result += savedSearchResultToString(savedSearchResults[i]);
         result += '\n';
     }
     return result;
@@ -942,15 +951,16 @@ function makeHtml(result, showToneColors) {
                 html += '<br><span class="grammar">Press "g" for grammar and usage notes.</span><br><br>';
             }
 
-            texts[index] = {
+            texts.push({
                 simplified: entry.simplified,
                 traditional: entry.traditional,
                 pronunciation: {
                     cantonese: entry.pronunciation.cantonese,
-                    mandarin: p.mandarin[1]
+                    mandarin: p.mandarin[1],
+                    zhuyin: p.mandarin[3]
                 },
                 definition: entry.definition,
-            };
+            });
         });
     });
 
@@ -1018,6 +1028,7 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
     let text = '';
     let html = '';
     let zhuyin = '';
+    let bopomofo = [];
     let a = syllables.split(/[\s·]+/);
     for (let i = 0; i < a.length; i++) {
         let syllable = a[i];
@@ -1067,11 +1078,13 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
         if (config.fontSize === 'small') {
             zhuyinClass += '-small';
         }
-
+        let zhuyinSyllable = globalThis.numericPinyin2Zhuyin(syllable);
+        bopomofo.push(zhuyinSyllable);
         zhuyin += '<span class="tone' + m[4] + ' ' + zhuyinClass + '">'
-            + globalThis.numericPinyin2Zhuyin(syllable) + '</span>';
+            + zhuyinSyllable + '</span>';
     }
-    return [html, text, zhuyin];
+    // [pinyinHtml, pinyinStr, zhuyinHtml, zhuyinStr]
+    return [html, text, zhuyin, bopomofo.join(' ')];
 }
 
 let miniHelp = `
